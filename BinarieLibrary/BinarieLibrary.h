@@ -14,8 +14,6 @@ This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 Inte
 #ifndef BinarieLib_h
 #define BinarieLib_h
 
-class BinarieLibrary {
 
-}
 
 #endif
