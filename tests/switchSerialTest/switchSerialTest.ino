@@ -20,7 +20,6 @@ void setup() {
     ; // wait for serial port to connect. Needed for native USB port only
   }
 
-  // prints title with ending line break
   Serial.println("Connection success");
 
 

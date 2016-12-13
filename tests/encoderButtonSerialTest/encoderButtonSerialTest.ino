@@ -1,6 +1,6 @@
 /*
 
-Title:                  switch serial test
+Title:                  encoder button serial test
 Original creator:       Jussi Wallin
 Original release URL:   https://github.com/Binarieshield/BinarieLibrary
 Original release date:  12/12/2016 (dd/mm/yyyy)
@@ -19,7 +19,6 @@ void setup() {
     ; // wait for serial port to connect. Needed for native USB port only
   }
 
-  // prints title with ending line break
   Serial.println("Connection success");
 
 
