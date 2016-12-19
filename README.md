@@ -1,5 +1,5 @@
-# BinarieLibrary
-Library for the Binarie I/O prototyping shield for Arduino
+# BinääriLibrary
+Library for the Binääri I/O prototyping shield for Arduino
 
 
 
