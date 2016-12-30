@@ -1,6 +1,6 @@
 /*
 
-Title: 					BinaariLibrary
+Title: 					BiaariLibrary - RotationalEncoder
 Original creator: 		Jussi Wallin
 Original release URL: 	https://github.com/Binaari/BinaariLibrary
 Original release date:	12/12/2016 (dd/mm/yyyy)
@@ -11,11 +11,11 @@ This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 Inte
 
 
 
-#ifndef BinaariLib_h
-#define BinaariLib_h
+#ifndef BinaariSevenSeg_h
+#define BinaariSevenSeg_h
 
-class BinaariLibrary {
-    
+class RotationalEncoder {
+
     void initiate() {
 
     }

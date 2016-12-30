@@ -14,6 +14,11 @@ This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 Inte
 #ifndef BinaariSevenSeg_h
 #define BinaariSevenSeg_h
 
+class SevenSegment {
 
+    void initiate() {
+
+    }
+};
 
 #endif
