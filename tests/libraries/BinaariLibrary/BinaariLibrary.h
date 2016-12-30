@@ -1,6 +1,6 @@
 /*
 
-Title: 					BiaariLibrary - Buzzer
+Title: 					BinaariLibrary
 Original creator: 		Jussi Wallin
 Original release URL: 	https://github.com/Binaari/BinaariLibrary
 Original release date:	12/12/2016 (dd/mm/yyyy)
@@ -11,27 +11,19 @@ This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 Inte
 
 
 
-#ifndef BinaariBuzzer_h
-#define BinaariBuzzer_h
+#ifndef BinaariLib_h
+#define BinaariLib_h
 
 #include "Arduino.h"
 
-class Buzzer {
+#include "Buzzer.h"
 
+class BinaariLibrary {
     public:
-    void initiate(int buzzerPIN = 9) {
-        buzzer = buzzerPIN;
-        pinMode(buzzer, OUTPUT);
-        return;
-    }
 
-    void beep(int frequency, int durationM) {
-        tone(buzzer, frequency, durationM);
-        return;
+    void initiate() {
+        Buzzer.initiate();
     }
-
-    private:
-    int buzzer;
 };
 
 #endif

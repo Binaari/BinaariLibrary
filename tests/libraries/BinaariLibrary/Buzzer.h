@@ -14,8 +14,6 @@ This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 Inte
 #ifndef BinaariBuzzer_h
 #define BinaariBuzzer_h
 
-#include "Arduino.h"
-
 class Buzzer {
 
     public:
