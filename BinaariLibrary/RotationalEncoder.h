@@ -24,12 +24,18 @@ class RotationalEncoder {
     int b;
     int button;
 
+    unsigned int getEncoderPos() {
+        
+    }
+
     private:
         
     volatile unsigned int encoderPos = 0;
     unsigned int lastReportedPos = 1;
     volatile boolean turn = false;
 
+    boolean Aset = false;
+    boolean Bset = false;
 
     void initiate(int A = 3, int B = 2, int btn = 4) {
         a = A;
@@ -45,6 +51,31 @@ class RotationalEncoder {
 
     }
 
+    void doInterruptA() {
+        if (turn) 
+            delay(1);
+        if (digitalRead(encA) != Aset) {
+            Aset = !Aset;
+
+            if (Aset && !Bset)
+                encoderPos++;
+
+            turn = false;
+        }
+    }
+
+    void doInterruptB() {
+        if (turn) 
+            delay(1);
+        if (digitalRead(encB) != Bset) {
+            Bset = !Bset;
+
+            if (!Aset && Bset)
+            encoderPos--;
+
+            turn = false;
+        }
+    }
     
 };
 
