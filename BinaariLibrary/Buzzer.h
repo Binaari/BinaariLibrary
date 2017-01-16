@@ -19,7 +19,7 @@ This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 Inte
 class Buzzer {
 
     public:
-    void initiate(int buzzerPIN = 9) {
+    void initialize(int buzzerPIN = 9) {
         buzzer = buzzerPIN;
         pinMode(buzzer, OUTPUT);
         return;
