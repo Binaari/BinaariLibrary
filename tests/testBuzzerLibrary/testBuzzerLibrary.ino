@@ -14,7 +14,7 @@ This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 Inte
 BinaariLibrary binaari();
 
 void setup() {
-    binaari.initiate();
+    binaari.initialize();
 }
 
 void loop() {
