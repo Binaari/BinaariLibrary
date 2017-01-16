@@ -27,6 +27,7 @@ class Buzzer {
 
     void beep(int frequency, int durationM) {
         tone(buzzer, frequency, durationM);
+        delay(durationM);
         return;
     }
 
