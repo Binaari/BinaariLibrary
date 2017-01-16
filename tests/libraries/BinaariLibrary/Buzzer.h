@@ -14,10 +14,12 @@ This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 Inte
 #ifndef BinaariBuzzer_h
 #define BinaariBuzzer_h
 
+#include "Arduino.h"
+
 class Buzzer {
 
     public:
-    void initiate(int buzzerPIN = 9) {
+    void initialize(int buzzerPIN = 9) {
         buzzer = buzzerPIN;
         pinMode(buzzer, OUTPUT);
         return;
@@ -25,6 +27,7 @@ class Buzzer {
 
     void beep(int frequency, int durationM) {
         tone(buzzer, frequency, durationM);
+        delay(durationM);
         return;
     }
 
