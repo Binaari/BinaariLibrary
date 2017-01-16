@@ -23,8 +23,8 @@ class BinaariLibrary {
 
     Buzzer buzzer();
 
-    void initiate() {
-        buzzer.initiate();
+    void initialize() {
+        buzzer.initialize();
     }
 };
 
