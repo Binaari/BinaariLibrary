@@ -21,8 +21,10 @@ This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 Inte
 class BinaariLibrary {
     public:
 
-    void initiate() {
-        Buzzer.initiate();
+    Buzzer buzzer;
+
+    void initialize() {
+        buzzer.initialize();
     }
 };
 
