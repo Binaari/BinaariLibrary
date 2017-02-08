@@ -114,6 +114,7 @@ void playZelda() {
 #define NOTE_D8  4699
 #define NOTE_DS8 4978
 
+// this song is the property of Nintendo, and is here for demonstration purposes only
   binaari.buzzer.beep(NOTE_D5, 100);
   delay(80);
   binaari.buzzer.beep(NOTE_F5, 100); 
