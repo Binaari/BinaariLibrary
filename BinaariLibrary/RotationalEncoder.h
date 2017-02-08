@@ -20,24 +20,19 @@ class RotationalEncoder {
 
     public:
 
-    int a;
-    int b;
-    int button;
-
-    unsigned int getEncoderPos() {
-        
+    int getPinA() {
+        return a;
+    }
+    
+    int getPinB() {
+        return b;
+    }
+    
+    int getPinButton() {
+        return button;
     }
 
-    private:
-        
-    volatile unsigned int encoderPos = 0;
-    unsigned int lastReportedPos = 1;
-    volatile boolean turn = false;
-
-    boolean Aset = false;
-    boolean Bset = false;
-
-    void initiate(int A = 3, int B = 2, int btn = 4) {
+    void initialize(int A = 3, int B = 2, int btn = 4) {
         a = A;
         b = B;
         button = btn;
@@ -46,15 +41,18 @@ class RotationalEncoder {
         pinMode(B, INPUT_PULLUP);
         pinMode(button, INPUT_PULLUP);
 
-        attachInterrupt(digitalPinToInterrupt(A), doInterruptA, CHANGE);
-        attachInterrupt(digitalPinToInterrupt(B), doInterruptB, CHANGE);
-
     }
 
+    private:
+        
+    int a;
+    int b;
+    int button;
+
     void doInterruptA() {
-        if (turn) 
+        if (turn) // if encoder has started turning delay execution of interrupt
             delay(1);
-        if (digitalRead(encA) != Aset) {
+        if (digitalRead(a) != Aset) {
             Aset = !Aset;
 
             if (Aset && !Bset)
@@ -65,9 +63,9 @@ class RotationalEncoder {
     }
 
     void doInterruptB() {
-        if (turn) 
+        if (turn) // if encoder has started turning delay execution of interrupt
             delay(1);
-        if (digitalRead(encB) != Bset) {
+        if (digitalRead(b) != Bset) {
             Bset = !Bset;
 
             if (!Aset && Bset)
@@ -78,5 +76,6 @@ class RotationalEncoder {
     }
     
 };
+
 
 #endif

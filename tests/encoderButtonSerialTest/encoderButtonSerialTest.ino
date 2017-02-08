@@ -23,7 +23,7 @@ void setup() {
 
 
   pinMode(encButton, INPUT);
-  Serial.println("Pin 2 input");
+  Serial.println("Pin 4 input");
 }
 
 void loop() {
