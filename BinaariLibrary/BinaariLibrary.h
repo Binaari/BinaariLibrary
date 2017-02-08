@@ -22,9 +22,11 @@ class BinaariLibrary {
     public:
 
     Buzzer buzzer;
+    RotationalEncoder rotEnc;
 
     void initialize() {
         buzzer.initialize();
+        rotEnc.initialize();
     }
 };
 

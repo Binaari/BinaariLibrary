@@ -20,24 +20,27 @@ class RotationalEncoder {
 
     public:
 
-    int a;
-    int b;
-    int button;
-
-    unsigned int getEncoderPos() {
-        
+    int getPinA() {
+        return a;
+    }
+    
+    int getPinB() {
+        return b;
+    }
+    
+    int getPinButton() {
+        return button;
     }
 
-    private:
-        
-    volatile unsigned int encoderPos = 0;
-    unsigned int lastReportedPos = 1;
-    volatile boolean turn = false;
+    unsigned int getEncoderPos() {
+        return encoderPos;
+    }
 
-    boolean Aset = false;
-    boolean Bset = false;
+    void setTurn(boolean b) {
+        turn = b;
+    }
 
-    void initiate(int A = 3, int B = 2, int btn = 4) {
+    void initialize(int A = 3, int B = 2, int btn = 4) {
         a = A;
         b = B;
         button = btn;
@@ -46,15 +49,25 @@ class RotationalEncoder {
         pinMode(B, INPUT_PULLUP);
         pinMode(button, INPUT_PULLUP);
 
-        attachInterrupt(digitalPinToInterrupt(A), doInterruptA, CHANGE);
-        attachInterrupt(digitalPinToInterrupt(B), doInterruptB, CHANGE);
-
+        attach(A,B);
     }
 
+    private:
+        
+    int a;
+    int b;
+    int button;
+
+    volatile unsigned int encoderPos;
+    volatile boolean turn = false;
+
+    boolean Aset = false;
+    boolean Bset = false;
+
     void doInterruptA() {
-        if (turn) 
+        if (turn) // if encoder has started turning delay execution of interrupt
             delay(1);
-        if (digitalRead(encA) != Aset) {
+        if (digitalRead(a) != Aset) {
             Aset = !Aset;
 
             if (Aset && !Bset)
@@ -65,9 +78,9 @@ class RotationalEncoder {
     }
 
     void doInterruptB() {
-        if (turn) 
+        if (turn) // if encoder has started turning delay execution of interrupt
             delay(1);
-        if (digitalRead(encB) != Bset) {
+        if (digitalRead(b) != Bset) {
             Bset = !Bset;
 
             if (!Aset && Bset)
@@ -78,5 +91,19 @@ class RotationalEncoder {
     }
     
 };
+
+void attachInterrupts(int a, int b) {
+    
+        attachInterrupt(digitalPinToInterrupt(a), InterruptA(), CHANGE);
+        attachInterrupt(digitalPinToInterrupt(b), InterruptB(), CHANGE);
+}
+
+void interruptA() {
+    RotationalEncoder.doInterruptA();
+}
+
+void interruptB() {
+    RotationalEncoder.doInterruptB();
+}
 
 #endif
