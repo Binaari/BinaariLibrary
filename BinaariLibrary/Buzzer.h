@@ -1,6 +1,6 @@
 /*
 
-Title: 					BinaariLibrary
+Title: 					BiaariLibrary - Buzzer
 Original creator: 		Jussi Wallin
 Original release URL: 	https://github.com/Binaari/BinaariLibrary
 Original release date:	12/12/2016 (dd/mm/yyyy)
@@ -11,27 +11,28 @@ This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 Inte
 
 
 
-#ifndef BinaariLib_h
-#define BinaariLib_h
+#ifndef BinaariBuzzer_h
+#define BinaariBuzzer_h
 
 #include "Arduino.h"
 
-#include "Buzzer.h"
-#include "RGBLed.h"
-#include "EnvironmentSensor.h"
+class Buzzer {
 
-class BinaariLibrary {
     public:
-
-    Buzzer buzzer;
-    RGBLed RGB;
-    EnvironmentSensor env;
-
-    void initialize() {
-        buzzer.initialize();
-        RGB.initialize();
-        env.initialize();
+    void initialize(int buzzerPIN = 9) {
+        buzzer = buzzerPIN;
+        pinMode(buzzer, OUTPUT);
+        return;
     }
+
+    void beep(int frequency, int durationM) {
+        tone(buzzer, frequency, durationM);
+        delay(durationM);
+        return;
+    }
+
+    private:
+    int buzzer;
 };
 
 #endif
