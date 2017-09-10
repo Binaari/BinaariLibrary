@@ -17,16 +17,20 @@ This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 Inte
 #include "Arduino.h"
 
 #include "Buzzer.h"
+#include "RGBLed.h"
+#include "EnvironmentSensor.h"
 
 class BinaariLibrary {
     public:
 
     Buzzer buzzer;
-    RotationalEncoder rotEnc;
+    RGBLed RGB;
+    EnvironmentSensor env;
 
     void initialize() {
         buzzer.initialize();
-        rotEnc.initialize();
+        RGB.initialize();
+        env.initialize();
     }
 };
 

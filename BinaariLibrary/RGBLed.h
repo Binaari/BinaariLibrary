@@ -58,7 +58,7 @@ class RGBLed {
                 }
                 b=b<<1; // shift bits left
                 i--;    // increment loop
-                __asm__ __volatile__(           // clocks   Pseudocode
+                __asm__(                        // clocks   Pseudocode
                         "nop\n\t""nop\n\t"      // 2        delay 2*62,5ns
                         "nop\n\t""nop\n\t"      // 2        delay 2*62,5ns
                         "nop\n\t""nop\n\t"      // 2        delay 2*62,5ns
