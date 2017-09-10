@@ -25,12 +25,12 @@ class BinaariLibrary {
 
     Buzzer buzzer;
     RGBLed RGB;
-    EnvironmentSensor env;
+    EnvironmentalSensor env;
 
     void initialize() {
         buzzer.initialize();
         RGB.initialize();
-        env.initialize();
+        env.init();
     }
 };
 
